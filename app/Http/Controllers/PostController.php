@@ -32,6 +32,7 @@ class PostController extends Controller
     public function showByCategoria() {
 
         $posts = Post::orderBy('categoria', 'asc')->get()->groupBy('categoria');
+        
         return view('posts.showByCategoria', compact('posts'));//devuelve la vista y pasa la variable
 
     }

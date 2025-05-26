@@ -1,17 +1,17 @@
 <app-layout>
 
-    <a href="/posts"> Voler atras </a>
+    <a href={{route('posts.index')}}> Voler atras </a>
 
     
     <h2> Titulo: {{$post->titulo}}</h2>
     <p>{{$post->contenido}}</p>
     <p><span>Categoria:</span> {{$post->categoria}}</p>
 
-    <a href="/posts/{{$post->id}}/edit"> Editar post </a> <!-- los enlaces solo hacen peticiones de tipo get -->
+    <a href={{route('posts.edit', $post->id)}}> Editar post </a> <!-- los enlaces solo hacen peticiones de tipo get -->
     <br>
     <br>
     <!-- Por lo que al boton delete hay que rearlo como u formulacion y dentro un boton -->
-    <form action="/posts/{{$post->id}}" method="POST">
+    <form action={{route('posts.update', $post->id)}} method="POST">
 
         @csrf
         @method('DELETE')

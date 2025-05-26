@@ -1,10 +1,10 @@
 <app-layout>
 
-<a href="/posts"> Voler atras </a>
+<a href={{route('posts.index')}}> Voler atras </a>
 
 <h1> Formulario para crear un nuevo post </h1>
 
-    <form action="/posts" method="POST">
+    <form action={{route('posts.store')}} method="POST">
         @csrf <!-- Laravel espera siempre un token cuando se utiliza el metodo POST -->
 
         <label for=""> Titulo: 
