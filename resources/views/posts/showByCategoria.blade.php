@@ -12,7 +12,7 @@
         <ul>
             @foreach ($grupo as $post)
                 <li> 
-                    <a href={{route('posts.show', $post->id)}}> {{ $post->titulo }} </a>
+                    <a href={{route('posts.show', $post)}}> {{ $post->titulo }} </a>
                 </li>
             @endforeach          
         </ul>

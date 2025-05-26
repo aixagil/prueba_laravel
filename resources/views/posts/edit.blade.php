@@ -4,7 +4,7 @@
 
 <h1> Formulario para editar un nuevo post </h1>
 
-    <form action={{route('posts.update', [$post->id])}} method="POST"> <!-- usamos [] si requiere pasar mas de un parametro a la ruta -->
+    <form action={{route('posts.update', [$post])}} method="POST"> <!-- usamos [] si requiere pasar mas de un parametro a la ruta -->
         @csrf <!-- Laravel espera siempre un token cuando se utiliza el metodo POST -->
         @method('PUT') <!-- SIEMPRE DEBE ESPECIFICARSE QUE SERÁ UN METODO PUT PORQUE SINO EL NAVEGADOR NO LO TOMA-->
 

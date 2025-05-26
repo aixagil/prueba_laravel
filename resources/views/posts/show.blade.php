@@ -11,7 +11,7 @@
     <br>
     <br>
     <!-- Por lo que al boton delete hay que rearlo como u formulacion y dentro un boton -->
-    <form action={{route('posts.update', $post->id)}} method="POST">
+    <form action={{route('posts.update', $post)}} method="POST">
 
         @csrf
         @method('DELETE')
