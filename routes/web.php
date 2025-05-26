@@ -5,14 +5,9 @@ use App\Http\Controllers\PostController;
 use Illuminate\Support\Facades\Route;
 
 //contiene los endpoins
-
-Route::get('/', [PostController::class, 'home']); //pagina principal *
-
+/*   
 Route::get('/posts', [PostController::class, 'index'])
     ->name('posts.index'); //LISTA TODOS LOS POSTS *
-
-Route::get('/posts/categoria', [PostController::class, 'showByCategoria'])
-    ->name('posts.showByCategoria'); 
 
 Route::get('/posts/create', [PostController::class, 'create'])
     ->name('posts.create'); //formulario para crear un post
@@ -33,4 +28,19 @@ Route::put('/posts/{id}', [PostController::class, 'update'])
 Route::delete('/posts/{id}', [PostController::class, 'destroy'])
     ->name('posts.destroy');
 
-//Route::resource('posts', PostController::class); //esta linea ya especifica todas las rutas anteriores sin necesidad de escribirlas/mencionarlas
+
+*/
+Route::get('/posts/categoria', [PostController::class, 'showByCategoria'])
+    ->name('posts.showByCategoria'); 
+
+Route::resource('posts', PostController::class); //tambien Route::apiResource('posts', PostController::class);
+
+/* 
+ ->except(['destroy', 'edit']) //Se puede especificar que una o varias rutas no se generen automaticamente
+ ->only(['index', 'edit']) //cuales rutas queremos crear
+  ->names('posts') //como queremos llamar a las rutas
+
+ */
+
+Route::get('/', [PostController::class, 'home']); //pagina principal *
+

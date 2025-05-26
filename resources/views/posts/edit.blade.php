@@ -1,6 +1,6 @@
 <app-layout>
 
-<a href="/posts"> Voler atras </a>
+<a href={{route('posts.index')}}> Voler atras </a>
 
 <h1> Formulario para editar un nuevo post </h1>
 

@@ -21,9 +21,9 @@ class PostController extends Controller
     }
 
     //las variable q deben enviarse del método hacia la vistas
-    public function show($post){
+    public function show(Post $post){
 
-        $post = Post::find($post);
+        //$post = Post::find($post);
 
         return view('posts.show', compact('post')); //con la funcion compact es igual a hacer ['post' => $post]
     }
@@ -59,17 +59,17 @@ class PostController extends Controller
             ->with('success', 'El post se inserto correctamente.') ;
     }
 
-    public function edit($post) {
+    public function edit(Post $post) {
 
-        $post = Post::find($post);
+       // $post = Post::find($post);
 
         return view('posts/edit', compact('post'));
 
     }
 
-    public function update(Request $request, $post){
+    public function update(Request $request,Post $post){
       
-        $post = Post::find($post);
+       // $post = Post::find($post); //al usar Post, laravel sabe que debe hacer..
 
         $post->titulo = $request->titulo;
         $post->categoria = $request->categoria;
@@ -77,12 +77,12 @@ class PostController extends Controller
         
         $post->save();
 
-        return redirect("/posts/{$post->id}");
+        return redirect()->route('posts.index', $post);
     }
 
-    public function destroy($post) {
+    public function destroy(Post $post) {
 
-        $post = Post::find($post);
+        //$post = Post::find($post);
 
         $post -> delete();
 
