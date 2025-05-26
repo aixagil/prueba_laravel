@@ -10,6 +10,8 @@ Route::get('/', [PostController::class, 'home']); //pagina principal *
 
 Route::get('/posts', [PostController::class, 'index'])->name('posts.index'); //LISTA TODOS LOS POSTS *
 
+Route::get('/posts/categoria', [PostController::class, 'showByCategoria']); 
+
 Route::get('/posts/create', [PostController::class, 'create']); //formulario para crear un post
 
 Route::get('/posts/{post}', [PostController::class, 'show']); //trae un post en particular (por medio de su id) *
@@ -17,6 +19,9 @@ Route::get('/posts/{post}', [PostController::class, 'show']); //trae un post en 
 Route::post('/posts', [PostController::class, 'store']); //almacena lo que se crea *
 
 Route::get('/posts/{post}/edit', [PostController::class, 'edit']); //muestra el formulario para editar
+
+
+
 
 Route::put('/posts/{id}', [PostController::class, 'update']);
 //ruta para procesar las actualizaciones

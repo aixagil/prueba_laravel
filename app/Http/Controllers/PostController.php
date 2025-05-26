@@ -28,6 +28,14 @@ class PostController extends Controller
         return view('posts.show', compact('post')); //con la funcion compact es igual a hacer ['post' => $post]
     }
 
+
+    public function showByCategoria() {
+
+        $posts = Post::orderBy('categoria', 'asc')->get()->groupBy('categoria');
+        return view('posts.showByCategoria', compact('posts'));//devuelve la vista y pasa la variable
+
+    }
+
     public function create() {      
 
         return view('posts.create');

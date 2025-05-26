@@ -2,6 +2,7 @@
 
     <a href="/posts"> Voler atras </a>
 
+    
     <h2> Titulo: {{$post->titulo}}</h2>
     <p>{{$post->contenido}}</p>
     <p><span>Categoria:</span> {{$post->categoria}}</p>
