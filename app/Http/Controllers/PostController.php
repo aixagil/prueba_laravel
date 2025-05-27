@@ -46,7 +46,7 @@ class PostController extends Controller
     public function store(Request $request) {
         //desde este metodo vamos a capturar lo que se envia por el formulario
         //la mejor forma (hasta ahora) es inyectando un objeto REQUEST 
-
+/* 
         $post = new Post();
         $post->titulo = $request->titulo;
         $post->slug = $request->slug;
@@ -54,11 +54,13 @@ class PostController extends Controller
         $post->contenido = $request->contenido;
         
         $post->save();
-
+*/
+        Post::create($request->all());
         return redirect()
             ->route('posts.index')
             ->with('success', 'El post se inserto correctamente.') ;
     }
+
 
     public function edit(Post $post) {
 
@@ -72,12 +74,15 @@ class PostController extends Controller
       
        // $post = Post::find($post); //al usar Post, laravel sabe que debe hacer..
 
+       $post->update($request->all());
+/*   
         $post->titulo = $request->titulo;
         $post->slug = $request->slug;
         $post->categoria = $request->categoria;
         $post->contenido = $request->contenido;
         
         $post->save();
+*/
 
         return redirect()->route('posts.index', $post);
     }
