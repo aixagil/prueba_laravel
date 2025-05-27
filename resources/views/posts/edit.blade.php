@@ -9,8 +9,9 @@
         @method('PUT') <!-- SIEMPRE DEBE ESPECIFICARSE QUE SERÁ UN METODO PUT PORQUE SINO EL NAVEGADOR NO LO TOMA-->
 
         <label> Titulo: 
-            <input type="text" name="titulo" value="{{$post->titulo}}">
+            <input type="text" name="titulo" value="{{old('contenido', $post->titulo)}}"> <!-- NO ME FUNCIONA EL SEGUNDO PARAMETRO DE OLD() -->  
         </label>
+        @error('titulo') <p> {{$message}} </p> @enderror
 
         <br>
         <br>
@@ -18,6 +19,7 @@
         <label for=""> Categoria:  
             <input type="text" name="categoria" value="{{$post->categoria}}">
         </label>
+        @error('categoria') <p> {{$message}} </p> @enderror
 
         <br>
         <br>
@@ -26,6 +28,7 @@
             Contenido: 
             <textarea name="contenido">{{$post->contenido}}</textarea>
         </label>
+        @error('contenido') <p> {{$message}} </p> @enderror
 
         <br>
         <br>
@@ -33,6 +36,7 @@
         <label> Slug: 
             <input type="text" name="slug" value="{{$post->slug}}">
         </label>
+        @error('slug') <p> {{$message}} </p> @enderror
         
         <br>
         <br>

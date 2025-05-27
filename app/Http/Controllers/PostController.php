@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StorePostRequest;
 use App\Models\Post;
 use Illuminate\Http\Request;
 
@@ -28,7 +29,6 @@ class PostController extends Controller
         return view('posts.show', compact('post')); //con la funcion compact es igual a hacer ['post' => $post]
     }
 
-
     public function showByCategoria() {
 
         $posts = Post::orderBy('categoria', 'asc')->get()->groupBy('categoria');
@@ -43,7 +43,7 @@ class PostController extends Controller
 
     }
 
-    public function store(Request $request) {
+    public function store(StorePostRequest $request) {
         //desde este metodo vamos a capturar lo que se envia por el formulario
         //la mejor forma (hasta ahora) es inyectando un objeto REQUEST 
 /* 
@@ -55,6 +55,16 @@ class PostController extends Controller
         
         $post->save();
 */
+        //añadimos validaciones que están en Request/StorePostRequest
+     /*   $request->validate([
+            'titulo' => 'required|min:5|max:250', //esta es una forma de expresar las validaciones, con | dentro del ' ' 
+            'slug' => ['required', 'min:5', 'max:100', 'unique:posts'], //otra forma es esta
+            'contenido' => 'required',
+            'categoria' => 'required',
+        ]);
+*/
+
+
         Post::create($request->all());
         return redirect()
             ->route('posts.index')
@@ -73,6 +83,12 @@ class PostController extends Controller
     public function update(Request $request,Post $post){
       
        // $post = Post::find($post); //al usar Post, laravel sabe que debe hacer..
+       $request->validate([
+            'titulo' => 'required|min:5|max:250', //esta es una forma de expresar las validaciones, con | dentro del ' ' 
+            'slug' => ['required', 'min:5', 'max:100', "unique:posts,slug,{$post->id}"], //otra forma es esta
+            'contenido' => 'required',
+            'categoria' => 'required',
+        ]);
 
        $post->update($request->all());
 /*   
