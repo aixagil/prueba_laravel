@@ -13,8 +13,12 @@ class Post extends Model
    // protected $guarded = ['id']; //PROTEGE Y EVITA QUE CAMPOS SENSIBLES SEAN POSIBLES DE MODIFICAR 
    //SE USA UNO O EL OTRO, PERO NO AMBOS
 
-   
 
+   //QH: Le indicamos a laravel el campo que queremos que capture/busque. Lo que nos ayuda a optimizar la URL (slug=cadenas de url)
+   public function getRouteKeyName()
+   {
+    return 'id';
+   } 
 
     
 }

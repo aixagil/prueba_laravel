@@ -39,6 +39,7 @@ Route::resource('posts', PostController::class); //tambien Route::apiResource('p
  ->except(['destroy', 'edit']) //Se puede especificar que una o varias rutas no se generen automaticamente
  ->only(['index', 'edit']) //cuales rutas queremos crear
   ->names('posts') //como queremos llamar a las rutas
+  ->parameter()
 
  */
 
