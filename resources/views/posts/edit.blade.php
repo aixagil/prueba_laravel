@@ -26,6 +26,13 @@
             Contenido: 
             <textarea name="contenido">{{$post->contenido}}</textarea>
         </label>
+
+        <br>
+        <br>
+
+        <label> Slug: 
+            <input type="text" name="slug" value="{{$post->slug}}">
+        </label>
         
         <br>
         <br>

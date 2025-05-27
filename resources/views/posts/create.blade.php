@@ -25,6 +25,13 @@
             Contenido: 
             <textarea name="contenido" ></textarea>
         </label>
+
+        <br>
+        <br>
+
+        <label> Slug: 
+            <input type="text" name="slug" value ="Defina un nombre unico para el post">
+        </label>
         
         <br>
         <br>

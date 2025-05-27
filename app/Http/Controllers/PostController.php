@@ -49,6 +49,7 @@ class PostController extends Controller
 
         $post = new Post();
         $post->titulo = $request->titulo;
+        $post->slug = $request->slug;
         $post->categoria = $request->categoria;
         $post->contenido = $request->contenido;
         
@@ -72,6 +73,7 @@ class PostController extends Controller
        // $post = Post::find($post); //al usar Post, laravel sabe que debe hacer..
 
         $post->titulo = $request->titulo;
+        $post->slug = $request->slug;
         $post->categoria = $request->categoria;
         $post->contenido = $request->contenido;
         

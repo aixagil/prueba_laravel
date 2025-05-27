@@ -13,6 +13,9 @@ return new class extends Migration
     {
         Schema::create('posts', function (Blueprint $table) {
             $table->id();
+        
+            $table->string('slug')->unique(); //permite mejorar los identificadores 
+
             $table->string('titulo', 250); //string permite hasta 255 caracteres
             $table->text('contenido'); //permite mas caracteres que string
             $table->string('categoria',50);

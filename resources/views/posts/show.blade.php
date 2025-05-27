@@ -7,7 +7,7 @@
     <p>{{$post->contenido}}</p>
     <p><span>Categoria:</span> {{$post->categoria}}</p>
 
-    <a href={{route('posts.edit', $post->id)}}> Editar post </a> <!-- los enlaces solo hacen peticiones de tipo get -->
+    <a href={{route('posts.edit', $post)}}> Editar post </a> <!-- los enlaces solo hacen peticiones de tipo get -->
     <br>
     <br>
     <!-- Por lo que al boton delete hay que rearlo como u formulacion y dentro un boton -->
