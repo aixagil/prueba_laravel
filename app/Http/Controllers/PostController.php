@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\StorePostRequest;
+use App\Mail\PostCreateMail;
 use App\Models\Post;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 //controlador de Post
 
@@ -44,28 +46,13 @@ class PostController extends Controller
     }
 
     public function store(StorePostRequest $request) {
-        //desde este metodo vamos a capturar lo que se envia por el formulario
-        //la mejor forma (hasta ahora) es inyectando un objeto REQUEST 
-/* 
-        $post = new Post();
-        $post->titulo = $request->titulo;
-        $post->slug = $request->slug;
-        $post->categoria = $request->categoria;
-        $post->contenido = $request->contenido;
-        
-        $post->save();
-*/
-        //añadimos validaciones que están en Request/StorePostRequest
-     /*   $request->validate([
-            'titulo' => 'required|min:5|max:250', //esta es una forma de expresar las validaciones, con | dentro del ' ' 
-            'slug' => ['required', 'min:5', 'max:100', 'unique:posts'], //otra forma es esta
-            'contenido' => 'required',
-            'categoria' => 'required',
-        ]);
-*/
+
+        $post = Post::create($request->all());
+
+        //configuracion del correo electronico, creando un archivo 
+        Mail::to('prueba@prueba.com')-> send(new PostCreateMail($post)); //se llama al faker MAIL
 
 
-        Post::create($request->all());
         return redirect()
             ->route('posts.index')
             ->with('success', 'El post se inserto correctamente.') ;
