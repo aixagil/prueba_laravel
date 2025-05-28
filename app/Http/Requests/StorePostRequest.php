@@ -27,21 +27,4 @@ class StorePostRequest extends FormRequest
             'categoria' => 'required',
         ];
     }
-/*
-    public function messages() {
-        return [
-            'titulo.required' => 'El campo titulo es requerido.',
-            'slug.required' => 'El campo slug es requerido.',
-            'contenido.required' => "El campo contenido es requerido.",
-            'categoria.required' => "El campo categoria es requerido.",
-            
-        ];
-    }
-
-    public function attributes() //trabajan por separado con messages, para eso hay que cambiar el campo en message por :attribute 
-    {
-        return [
-            'titulo' => 'name',
-        ];
-    }*/
 }
