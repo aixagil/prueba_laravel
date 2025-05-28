@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Post extends Model
 {
     //se especifica que tabla debe administrar
-    protected $table = 'posts';
+    //protected $table = 'posts';
 
     //Asignacion masiva: podemos definir los datos que se van a tomar [$fillable] o los datos que se deben ignorar [$guarded]
  //CUALES SON LOS DATOS QUE VAN A SER ASIGNABLES EN MASA, EL RESTO ELOQUEN LOS IGNORA

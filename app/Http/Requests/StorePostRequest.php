@@ -27,7 +27,7 @@ class StorePostRequest extends FormRequest
             'categoria' => 'required',
         ];
     }
-
+/*
     public function messages() {
         return [
             'titulo.required' => 'El campo titulo es requerido.',
@@ -38,7 +38,7 @@ class StorePostRequest extends FormRequest
         ];
     }
 
-    /*public function attributes() //trabajan por separado con messages 
+    public function attributes() //trabajan por separado con messages, para eso hay que cambiar el campo en message por :attribute 
     {
         return [
             'titulo' => 'name',
