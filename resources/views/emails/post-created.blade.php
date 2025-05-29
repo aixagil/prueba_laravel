@@ -1,17 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>envio de correo</title>
-</head>
-<body>
-    
-    <h1> Se ha creado un post nuevo !</h1>
-    <h3>Requiere de aprobación</h3>
+<x-mail::message> 
 
-    <a href="{{route('posts.show', $post)}}"> click para ver </a>
+# Se ha creado un post nuevo !
 
-</body>
-</html>
+<x-mail::panel>
+Requiere de aprobacion
+</x-mail::panel>
+
+<x-mail::button :url="route('posts.show',$post)">
+click para ver
+</x-mail::button>
+
+
+</x-mail::message>
